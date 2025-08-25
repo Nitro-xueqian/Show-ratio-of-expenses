@@ -1,0 +1,529 @@
+﻿expenses_cal_effect = {
+	every_country = {
+		limit = {
+			is_player = yes
+		}
+		# 设置初始值
+		set_variable = {
+			name = sre_total_expenses
+			value = expenses
+			min = 1
+		}
+		set_variable = {
+			name = expenses_piechart_slot1_value
+			value = administration_expense
+		}
+		set_variable = {
+			name = expenses_piechart_slot2_value
+			value = construction_expense
+		}
+		set_variable = {
+			name = expenses_piechart_slot3_value
+			value = education_expense
+		}
+		set_variable = {
+			name = expenses_piechart_slot4_value
+			value = army_expense
+		}
+		set_variable = {
+			name = expenses_piechart_slot5_value
+			value = navy_expense
+		}
+		set_variable = {
+			name = expenses_piechart_slot6_value
+			value = others_expense
+		}
+		
+		# 设置初始索引（标记原始位置）
+		set_variable = {
+			name = expenses_piechart_slot1_index
+			value = 1
+		}
+		set_variable = {
+			name = expenses_piechart_slot2_index
+			value = 2
+		}
+		set_variable = {
+			name = expenses_piechart_slot3_index
+			value = 3
+		}
+		set_variable = {
+			name = expenses_piechart_slot4_index
+			value = 4
+		}
+		set_variable = {
+			name = expenses_piechart_slot5_index
+			value = 5
+		}
+		set_variable = {
+			name = expenses_piechart_slot6_index
+			value = 6
+		}
+		
+		set_variable = {
+			name = temp_value
+			value = 0
+		}
+		set_variable = {
+			name = temp_index
+			value = 0
+		}
+		
+		# 第一轮排序（同时交换值和索引）
+		if = {
+			limit = {
+				var:expenses_piechart_slot1_value < var:expenses_piechart_slot2_value
+			}
+			# 交换值
+			set_variable = {
+				name = temp_value
+				value = var:expenses_piechart_slot1_value
+			}
+			set_variable = {
+				name = expenses_piechart_slot1_value
+				value = var:expenses_piechart_slot2_value
+			}
+			set_variable = {
+				name = expenses_piechart_slot2_value
+				value = var:temp_value
+			}
+			# 交换索引
+			set_variable = {
+				name = temp_index
+				value = var:expenses_piechart_slot1_index
+			}
+			set_variable = {
+				name = expenses_piechart_slot1_index
+				value = var:expenses_piechart_slot2_index
+			}
+			set_variable = {
+				name = expenses_piechart_slot2_index
+				value = var:temp_index
+			}
+		}
+		
+		if = {
+			limit = {
+				var:expenses_piechart_slot2_value < var:expenses_piechart_slot3_value
+			}
+			set_variable = {
+				name = temp_value
+				value = var:expenses_piechart_slot2_value
+			}
+			set_variable = {
+				name = expenses_piechart_slot2_value
+				value = var:expenses_piechart_slot3_value
+			}
+			set_variable = {
+				name = expenses_piechart_slot3_value
+				value = var:temp_value
+			}
+			set_variable = {
+				name = temp_index
+				value = var:expenses_piechart_slot2_index
+			}
+			set_variable = {
+				name = expenses_piechart_slot2_index
+				value = var:expenses_piechart_slot3_index
+			}
+			set_variable = {
+				name = expenses_piechart_slot3_index
+				value = var:temp_index
+			}
+		}
+		
+		if = {
+			limit = {
+				var:expenses_piechart_slot3_value < var:expenses_piechart_slot4_value
+			}
+			set_variable = {
+				name = temp_value
+				value = var:expenses_piechart_slot3_value
+			}
+			set_variable = {
+				name = expenses_piechart_slot3_value
+				value = var:expenses_piechart_slot4_value
+			}
+			set_variable = {
+				name = expenses_piechart_slot4_value
+				value = var:temp_value
+			}
+			set_variable = {
+				name = temp_index
+				value = var:expenses_piechart_slot3_index
+			}
+			set_variable = {
+				name = expenses_piechart_slot3_index
+				value = var:expenses_piechart_slot4_index
+			}
+			set_variable = {
+				name = expenses_piechart_slot4_index
+				value = var:temp_index
+			}
+		}
+		
+		if = {
+			limit = {
+				var:expenses_piechart_slot4_value < var:expenses_piechart_slot5_value
+			}
+			set_variable = {
+				name = temp_value
+				value = var:expenses_piechart_slot4_value
+			}
+			set_variable = {
+				name = expenses_piechart_slot4_value
+				value = var:expenses_piechart_slot5_value
+			}
+			set_variable = {
+				name = expenses_piechart_slot5_value
+				value = var:temp_value
+			}
+			set_variable = {
+				name = temp_index
+				value = var:expenses_piechart_slot4_index
+			}
+			set_variable = {
+				name = expenses_piechart_slot4_index
+				value = var:expenses_piechart_slot5_index
+			}
+			set_variable = {
+				name = expenses_piechart_slot5_index
+				value = var:temp_index
+			}
+		}
+		
+		if = {
+			limit = {
+				var:expenses_piechart_slot5_value < var:expenses_piechart_slot6_value
+			}
+			set_variable = {
+				name = temp_value
+				value = var:expenses_piechart_slot5_value
+			}
+			set_variable = {
+				name = expenses_piechart_slot5_value
+				value = var:expenses_piechart_slot6_value
+			}
+			set_variable = {
+				name = expenses_piechart_slot6_value
+				value = var:temp_value
+			}
+			set_variable = {
+				name = temp_index
+				value = var:expenses_piechart_slot5_index
+			}
+			set_variable = {
+				name = expenses_piechart_slot5_index
+				value = var:expenses_piechart_slot6_index
+			}
+			set_variable = {
+				name = expenses_piechart_slot6_index
+				value = var:temp_index
+			}
+		}
+		
+		# 第二轮排序
+		if = {
+			limit = {
+				var:expenses_piechart_slot1_value < var:expenses_piechart_slot2_value
+			}
+			set_variable = {
+				name = temp_value
+				value = var:expenses_piechart_slot1_value
+			}
+			set_variable = {
+				name = expenses_piechart_slot1_value
+				value = var:expenses_piechart_slot2_value
+			}
+			set_variable = {
+				name = expenses_piechart_slot2_value
+				value = var:temp_value
+			}
+			set_variable = {
+				name = temp_index
+				value = var:expenses_piechart_slot1_index
+			}
+			set_variable = {
+				name = expenses_piechart_slot1_index
+				value = var:expenses_piechart_slot2_index
+			}
+			set_variable = {
+				name = expenses_piechart_slot2_index
+				value = var:temp_index
+			}
+		}
+		
+		if = {
+			limit = {
+				var:expenses_piechart_slot2_value < var:expenses_piechart_slot3_value
+			}
+			set_variable = {
+				name = temp_value
+				value = var:expenses_piechart_slot2_value
+			}
+			set_variable = {
+				name = expenses_piechart_slot2_value
+				value = var:expenses_piechart_slot3_value
+			}
+			set_variable = {
+				name = expenses_piechart_slot3_value
+				value = var:temp_value
+			}
+			set_variable = {
+				name = temp_index
+				value = var:expenses_piechart_slot2_index
+			}
+			set_variable = {
+				name = expenses_piechart_slot2_index
+				value = var:expenses_piechart_slot3_index
+			}
+			set_variable = {
+				name = expenses_piechart_slot3_index
+				value = var:temp_index
+			}
+		}
+		
+		if = {
+			limit = {
+				var:expenses_piechart_slot3_value < var:expenses_piechart_slot4_value
+			}
+			set_variable = {
+				name = temp_value
+				value = var:expenses_piechart_slot3_value
+			}
+			set_variable = {
+				name = expenses_piechart_slot3_value
+				value = var:expenses_piechart_slot4_value
+			}
+			set_variable = {
+				name = expenses_piechart_slot4_value
+				value = var:temp_value
+			}
+			set_variable = {
+				name = temp_index
+				value = var:expenses_piechart_slot3_index
+			}
+			set_variable = {
+				name = expenses_piechart_slot3_index
+				value = var:expenses_piechart_slot4_index
+			}
+			set_variable = {
+				name = expenses_piechart_slot4_index
+				value = var:temp_index
+			}
+		}
+		
+		if = {
+			limit = {
+				var:expenses_piechart_slot4_value < var:expenses_piechart_slot5_value
+			}
+			set_variable = {
+				name = temp_value
+				value = var:expenses_piechart_slot4_value
+			}
+			set_variable = {
+				name = expenses_piechart_slot4_value
+				value = var:expenses_piechart_slot5_value
+			}
+			set_variable = {
+				name = expenses_piechart_slot5_value
+				value = var:temp_value
+			}
+			set_variable = {
+				name = temp_index
+				value = var:expenses_piechart_slot4_index
+			}
+			set_variable = {
+				name = expenses_piechart_slot4_index
+				value = var:expenses_piechart_slot5_index
+			}
+			set_variable = {
+				name = expenses_piechart_slot5_index
+				value = var:temp_index
+			}
+		}
+		
+		# 第三轮排序
+		if = {
+			limit = {
+				var:expenses_piechart_slot1_value < var:expenses_piechart_slot2_value
+			}
+			set_variable = {
+				name = temp_value
+				value = var:expenses_piechart_slot1_value
+			}
+			set_variable = {
+				name = expenses_piechart_slot1_value
+				value = var:expenses_piechart_slot2_value
+			}
+			set_variable = {
+				name = expenses_piechart_slot2_value
+				value = var:temp_value
+			}
+			set_variable = {
+				name = temp_index
+				value = var:expenses_piechart_slot1_index
+			}
+			set_variable = {
+				name = expenses_piechart_slot1_index
+				value = var:expenses_piechart_slot2_index
+			}
+			set_variable = {
+				name = expenses_piechart_slot2_index
+				value = var:temp_index
+			}
+		}
+		
+		if = {
+			limit = {
+				var:expenses_piechart_slot2_value < var:expenses_piechart_slot3_value
+			}
+			set_variable = {
+				name = temp_value
+				value = var:expenses_piechart_slot2_value
+			}
+			set_variable = {
+				name = expenses_piechart_slot2_value
+				value = var:expenses_piechart_slot3_value
+			}
+			set_variable = {
+				name = expenses_piechart_slot3_value
+				value = var:temp_value
+			}
+			set_variable = {
+				name = temp_index
+				value = var:expenses_piechart_slot2_index
+			}
+			set_variable = {
+				name = expenses_piechart_slot2_index
+				value = var:expenses_piechart_slot3_index
+			}
+			set_variable = {
+				name = expenses_piechart_slot3_index
+				value = var:temp_index
+			}
+		}
+		
+		if = {
+			limit = {
+				var:expenses_piechart_slot3_value < var:expenses_piechart_slot4_value
+			}
+			set_variable = {
+				name = temp_value
+				value = var:expenses_piechart_slot3_value
+			}
+			set_variable = {
+				name = expenses_piechart_slot3_value
+				value = var:expenses_piechart_slot4_value
+			}
+			set_variable = {
+				name = expenses_piechart_slot4_value
+				value = var:temp_value
+			}
+			set_variable = {
+				name = temp_index
+				value = var:expenses_piechart_slot3_index
+			}
+			set_variable = {
+				name = expenses_piechart_slot3_index
+				value = var:expenses_piechart_slot4_index
+			}
+			set_variable = {
+				name = expenses_piechart_slot4_index
+				value = var:temp_index
+			}
+		}
+		
+		# 第四轮排序
+		if = {
+			limit = {
+				var:expenses_piechart_slot1_value < var:expenses_piechart_slot2_value
+			}
+			set_variable = {
+				name = temp_value
+				value = var:expenses_piechart_slot1_value
+			}
+			set_variable = {
+				name = expenses_piechart_slot1_value
+				value = var:expenses_piechart_slot2_value
+			}
+			set_variable = {
+				name = expenses_piechart_slot2_value
+				value = var:temp_value
+			}
+			set_variable = {
+				name = temp_index
+				value = var:expenses_piechart_slot1_index
+			}
+			set_variable = {
+				name = expenses_piechart_slot1_index
+				value = var:expenses_piechart_slot2_index
+			}
+			set_variable = {
+				name = expenses_piechart_slot2_index
+				value = var:temp_index
+			}
+		}
+		
+		if = {
+			limit = {
+				var:expenses_piechart_slot2_value < var:expenses_piechart_slot3_value
+			}
+			set_variable = {
+				name = temp_value
+				value = var:expenses_piechart_slot2_value
+			}
+			set_variable = {
+				name = expenses_piechart_slot2_value
+				value = var:expenses_piechart_slot3_value
+			}
+			set_variable = {
+				name = expenses_piechart_slot3_value
+				value = var:temp_value
+			}
+			set_variable = {
+				name = temp_index
+				value = var:expenses_piechart_slot2_index
+			}
+			set_variable = {
+				name = expenses_piechart_slot2_index
+				value = var:expenses_piechart_slot3_index
+			}
+			set_variable = {
+				name = expenses_piechart_slot3_index
+				value = var:temp_index
+			}
+		}
+		
+		# 第五轮排序
+		if = {
+			limit = {
+				var:expenses_piechart_slot1_value < var:expenses_piechart_slot2_value
+			}
+			set_variable = {
+				name = temp_value
+				value = var:expenses_piechart_slot1_value
+			}
+			set_variable = {
+				name = expenses_piechart_slot1_value
+				value = var:expenses_piechart_slot2_value
+			}
+			set_variable = {
+				name = expenses_piechart_slot2_value
+				value = var:temp_value
+			}
+			set_variable = {
+				name = temp_index
+				value = var:expenses_piechart_slot1_index
+			}
+			set_variable = {
+				name = expenses_piechart_slot1_index
+				value = var:expenses_piechart_slot2_index
+			}
+			set_variable = {
+				name = expenses_piechart_slot2_index
+				value = var:temp_index
+			}
+		}
+	}
+}

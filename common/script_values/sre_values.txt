@@ -1,0 +1,127 @@
+﻿administration_expense = {
+	every_scope_state = {
+		add = {
+    		if = {
+				limit = {
+					any_scope_building = {
+						is_building_type = building_government_administration
+					}
+				}
+				value = b:building_government_administration.weekly_profit
+			}
+			else = {
+				value = 0
+			}
+		}
+  	}
+	multiply = -1
+}
+construction_expense = {
+	every_scope_state = {
+		add = {
+    		if = {
+				limit = {
+					any_scope_building = {
+						is_building_type = building_construction_sector
+					}
+				}
+				value = b:building_construction_sector.weekly_profit
+			}
+			else = {
+				value = 0
+			}
+		}
+  	}
+	multiply = -1
+}
+education_expense = {
+	every_scope_state = {
+		add = {
+    		if = {
+				limit = {
+					any_scope_building = {
+						is_building_type = building_university
+					}
+				}
+				value = b:building_university.weekly_profit
+			}
+			else = {
+				value = 0
+			}
+		}
+  	}
+	multiply = -1
+}
+army_expense = {
+	value = army_expense_unmodified
+	multiply = military_expense_index
+}
+army_expense_unmodified = {
+	every_scope_state = {
+		add = {
+    		if = {
+				limit = {
+					any_scope_building = {
+						is_building_type = building_barracks
+					}
+				}
+				value = b:building_barracks.weekly_profit
+			}
+			else = {
+				value = 0
+			}
+		}
+		add = {
+    		if = {
+				limit = {
+					any_scope_building = {
+						is_building_type = building_conscription_center
+					}
+				}
+				value = b:building_conscription_center.weekly_profit
+			}
+			else = {
+				value = 0
+			}
+		}
+  	}
+	multiply = -1
+}
+navy_expense = {
+	value = navy_expense_unmodified
+	multiply = military_expense_index
+}
+navy_expense_unmodified = {
+	every_scope_state = {
+		add = {
+    		if = {
+				limit = {
+					any_scope_building = {
+						is_building_type = building_naval_base
+					}
+				}
+				value = b:building_naval_base.weekly_profit
+			}
+			else = {
+				value = 0
+			}
+		}
+  	}
+	multiply = -1
+}
+military_expense_index = {
+	value = military_expenses
+	divide = {
+		value = army_expense_unmodified
+		add = navy_expense_unmodified
+		min = 1
+	}
+}
+others_expense = {
+	value = EXPENSES
+	subtract = education_expense
+	subtract = construction_expense
+	subtract = administration_expense
+	subtract = army_expense
+	subtract = navy_expense
+}

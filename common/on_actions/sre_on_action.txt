@@ -1,0 +1,24 @@
+﻿on_game_started_after_lobby = {
+	on_actions = {
+        set_sre_weekly_on_action
+        sre_weekly_on_action
+    }
+}
+on_monthly_pulse = {
+    on_actions = {
+        set_sre_weekly_on_action
+    }
+}
+set_sre_weekly_on_action = {
+    effect = {
+        com_run_weekly_event_country_effect = {
+            weekday = 1
+            on_action = sre_weekly_on_action
+        }
+    }
+}
+sre_weekly_on_action = {
+    effect = {
+        expenses_cal_effect = yes
+    }
+}
